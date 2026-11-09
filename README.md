@@ -109,22 +109,11 @@ You can also translate a single sentence without entering interactive mode:
 npm run translate -- "Good morning"
 ```
 
-Example output:
-
-```text
-Loading English → French model...
-Model ready.
-
-Bonjour (120 ms)
-```
-
-*The displayed execution time is illustrative and will vary depending on your machine.*
-
 ## Offline Functionality
 
 One of the main advantages of this project is its ability to perform translations locally.
 
-The application uses the Bergamot model through QVAC SDK. The model is downloaded during the initial setup and subsequently loaded from the local model cache.
+The application uses the Bergamot model through the QVAC SDK. The model is downloaded during the initial setup and subsequently loaded from the local model cache.
 
 ### How Offline Translation Works
 
@@ -139,19 +128,43 @@ The translation process does not require sending sentences to an external transl
 
 **Important:** The initial model download requires internet access. Offline execution depends on the model having been successfully downloaded and cached beforehand.
 
-### Offline Testing Checklist
+### Offline Testing Results
 
-The following tests can be used to verify offline functionality:
+I tested the application after downloading the translation model and disconnecting from the internet.
 
-| Test | Expected result |
+**Environment used:**
+
+- **Node.js version:** `v24.15.0`
+- **Translation engine:** Bergamot
+- **Model:** QVAC English-to-French (Bergamot NMT)
+
+**Test command:**
+
+```bash
+npm run translate -- "Good morning"
+```
+
+**Actual terminal output:**
+
+```text
+Loading English → French model...
+Model ready.
+
+Bonjour  (482 ms)
+```
+
+**Test results:**
+
+| Test | Result |
 |---|---|
-| Initial model download | Model downloads successfully while online |
-| Model initialization | Model loads successfully |
-| Interactive translation | English sentences are translated into French |
-| Multiple translations | Several sentences can be translated in one session |
-| One-shot translation | A sentence passed through the terminal is translated |
-| Offline model loading | Previously downloaded model loads without internet |
-| Offline translation | Translation continues without an active internet connection |
+| Model initialization | Successful |
+| Offline model loading | Successful |
+| English-to-French translation | Successful |
+| Input | `Good morning` |
+| Output | `Bonjour` |
+| Translation time | `482 ms` |
+
+**Conclusion:** The application successfully loaded the previously downloaded model and translated English text into French without an active internet connection.
 
 ## Project Structure
 
@@ -205,42 +218,6 @@ Ensure that the initial model download completed successfully before disconnecti
 **3. Translation fails**
 
 Check that the model was loaded successfully and that the input is not empty.
-
-## Environment Used
-
-- **Node.js:** `v24.15.0`
-- **Runtime:** Node.js
-- **Translation engine:** Bergamot
-- **Model:** QVAC English → French (Bergamot NMT)
-
-## Offline Testing Results
-
-After downloading the translation model during the initial setup, I disconnected from the internet and tested the application again.
-
-**Test command:**
-
-```bash
-npm run translate -- "Good morning"
-```
-
-**Terminal output:**
-
-```text
-Loading English → French model...
-Model ready.
-
-Bonjour  (482 ms)
-```
-
-**Result:**
-- Model loaded successfully from the local cache.
-- English text was translated into French successfully.
-- Input: `Good morning`
-- Output: `Bonjour`
-- Translation time: `482 ms`
-
-**Conclusion:** The application successfully performed English-to-French translation without an active internet connection after the initial model download.
-
 
 ## Limitations
 
