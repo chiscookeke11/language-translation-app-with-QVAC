@@ -206,6 +206,42 @@ Ensure that the initial model download completed successfully before disconnecti
 
 Check that the model was loaded successfully and that the input is not empty.
 
+## Environment Used
+
+- **Node.js:** `v24.15.0`
+- **Runtime:** Node.js
+- **Translation engine:** Bergamot
+- **Model:** QVAC English → French (Bergamot NMT)
+
+## Offline Testing Results
+
+After downloading the translation model during the initial setup, I disconnected from the internet and tested the application again.
+
+**Test command:**
+
+```bash
+npm run translate -- "Good morning"
+```
+
+**Terminal output:**
+
+```text
+Loading English → French model...
+Model ready.
+
+Bonjour  (482 ms)
+```
+
+**Result:**
+- Model loaded successfully from the local cache.
+- English text was translated into French successfully.
+- Input: `Good morning`
+- Output: `Bonjour`
+- Translation time: `482 ms`
+
+**Conclusion:** The application successfully performed English-to-French translation without an active internet connection after the initial model download.
+
+
 ## Limitations
 
 - The current implementation supports English-to-French translation only.
