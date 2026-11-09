@@ -153,6 +153,10 @@ Model ready.
 Bonjour  (482 ms)
 ```
 
+<img width="656" height="305" alt="Screenshot 2026-11-09 090908" src="https://github.com/user-attachments/assets/d5c799f7-3064-47ec-b2db-6822705b5262" />
+
+```
+
 **Test results:**
 
 | Test | Result |
